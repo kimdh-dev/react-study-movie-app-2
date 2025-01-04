@@ -7,5 +7,5 @@ ReactJS Version: 17.0.2
 
 ## How To Run
 
-npm install
+npm install  
 npm start
