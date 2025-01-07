@@ -1,11 +1,74 @@
 import Button from "./Button.js";
 import styles from "./App.module.css";
+import { useState, useEffect } from "react";
 
+/*
 function App() {
   return (
     <div>
       <h1 className={styles.title}>Welcome back!</h1>
       <Button text="Continue" />
+    </div>
+  );
+}
+*/
+
+/*
+function App() {
+  const [counter, setCounter] = useState(0);
+  const [keyword, setKeyword] = useState("");
+  const onClick = () => {
+    setCounter((prev) => prev + 1);
+  };
+  const onChange = (event) => {
+    setKeyword(event.target.value);
+  };
+  useEffect(() => {
+    console.log("only one call");
+  }, []);
+  useEffect(() => {
+    console.log("keyword changes");
+  }, [keyword]);
+  useEffect(() => {
+    console.log("counter changes");
+  }, [counter]);
+  useEffect(() => {
+    console.log("keyword and counter changes");
+  }, [keyword, counter]);
+  return (
+    <div>
+      <input
+        type="text"
+        value={keyword}
+        placeholder="keyword"
+        onChange={onChange}
+      />
+      <h1>{counter}</h1>
+      <button onClick={onClick}>click me</button>
+    </div>
+  );
+}
+
+*/
+
+function App() {
+  const [showing, setShowing] = useState(false);
+  const Hello = () => {
+    useEffect(() => {
+      console.log("hi");
+      return () => {
+        console.log("bye");
+      };
+    }, []);
+    return <h1>Hello</h1>;
+  };
+  const onClick = () => {
+    setShowing((curr) => !curr);
+  };
+  return (
+    <div>
+      {showing ? <Hello /> : null}
+      <button onClick={onClick}>{showing ? "Hide" : "Show"}</button>
     </div>
   );
 }
